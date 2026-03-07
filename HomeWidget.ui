@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HomeWidget</class>
+ <widget class="QWidget" name="HomeWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>636</width>
+    <height>557</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>HomeWidget</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <widget class="QWidget" name="Centeral" native="true">
+     <property name="styleSheet">
+      <string notr="true">#Centeral
+{
+background:rgb(13, 66, 130);
+border-radius:10px;
+border:1px solid rgb(30,157,255);
+}</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>4</number>
+      </property>
+      <property name="topMargin">
+       <number>4</number>
+      </property>
+      <property name="rightMargin">
+       <number>4</number>
+      </property>
+      <property name="bottomMargin">
+       <number>4</number>
+      </property>
+      <item>
+       <layout class="QHBoxLayout" name="TitleLaylout">
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="MiniButton">
+          <property name="minimumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#MiniButton
+{
+border:none;
+}
+
+#MiniButton:hover{
+background-color:rgb(177, 0, 3)
+}
+
+#MiniButton:pressed{
+background-color:rgb(255, 0, 4)
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="icon.qrc">
+            <normaloff>:/icon/mini.png</normaloff>:/icon/mini.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="CloseButton">
+          <property name="minimumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#CloseButton
+{
+border:none;
+border-top-right-radius:10px;
+}
+
+#CloseButton:hover{
+background-color:rgb(177, 0, 3)
+}
+
+#CloseButton:pressed{
+background-color:rgb(255, 0, 4)
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="icon.qrc">
+            <normaloff>:/icon/close.png</normaloff>:/icon/close.png</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="MainLayout">
+        <item>
+         <widget class="QWidget" name="DockerArea" native="true">
+          <property name="styleSheet">
+           <string notr="true">#DockerArea
+{
+background:rgb(13, 66, 130);
+}</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QPushButton" name="Upload">
+             <property name="minimumSize">
+              <size>
+               <width>130</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>130</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#Upload
+{
+border:none;
+}
+
+#Upload:hover{
+background-color:rgb(10, 54, 104);
+}
+
+#Upload:pressed{
+background-color:rgb(16, 84, 166);
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="icon.qrc">
+               <normaloff>:/icon/upload.png</normaloff>:/icon/upload.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>70</width>
+               <height>70</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="Download">
+             <property name="minimumSize">
+              <size>
+               <width>130</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>130</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#Download
+{
+border:none;
+}
+
+#Download:hover{
+background-color:rgb(10, 54, 104);
+}
+
+#Download:pressed{
+background-color:rgb(16, 84, 166);
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="icon.qrc">
+               <normaloff>:/icon/download.png</normaloff>:/icon/download.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>70</width>
+               <height>70</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="TaskList">
+             <property name="minimumSize">
+              <size>
+               <width>130</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>130</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#TaskList
+{
+border:none;
+}
+
+#TaskList:hover{
+background-color:rgb(10, 54, 104);
+}
+
+#TaskList:pressed{
+background-color:rgb(16, 84, 166);
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="icon.qrc">
+               <normaloff>:/icon/tasklist.png</normaloff>:/icon/tasklist.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>70</width>
+               <height>70</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="NodeList">
+             <property name="minimumSize">
+              <size>
+               <width>130</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>130</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#NodeList
+{
+border:none;
+}
+
+#NodeList:hover{
+background-color:rgb(10, 54, 104);
+}
+
+#NodeList:pressed{
+background-color:rgb(16, 84, 166);
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="icon.qrc">
+               <normaloff>:/icon/nodelist.png</normaloff>:/icon/nodelist.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>70</width>
+               <height>70</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QStackedWidget" name="stackedWidget">
+          <property name="styleSheet">
+           <string notr="true">#UploadWidget
+{
+background:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
+}</string>
+          </property>
+          <widget class="QWidget" name="UploadWidget">
+           <property name="styleSheet">
+            <string notr="true">#UploadWidget
+{
+background-color:rgb(16, 84, 166);
+}</string>
+           </property>
+          </widget>
+          <widget class="QWidget" name="DownloadWidget">
+           <property name="styleSheet">
+            <string notr="true">#DownloadWidget
+{
+background-color:rgb(16, 84, 166);
+}</string>
+           </property>
+          </widget>
+          <widget class="QWidget" name="TaskListWidget">
+           <property name="styleSheet">
+            <string notr="true">#TaskListWidget
+{
+background-color:rgb(16, 84, 166);
+}</string>
+           </property>
+          </widget>
+          <widget class="QWidget" name="NodeListWidget">
+           <property name="styleSheet">
+            <string notr="true">#NodeListWidget
+{
+background-color:rgb(16, 84, 166);
+}</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="icon.qrc"/>
+ </resources>
+ <connections/>
+</ui>
