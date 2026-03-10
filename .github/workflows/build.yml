@@ -36,7 +36,6 @@ jobs:
         host: ${{ matrix.os == 'windows-2022' && 'windows' || 'linux' }}
         target: 'desktop'
         arch: ${{ matrix.os == 'windows-2022' && 'win64_msvc2022_64' || 'gcc_64' }}
-        modules: 'qtbase qttools'
 
     - name: Configure MSVC (Windows)
       if: matrix.os == 'windows-2022'
