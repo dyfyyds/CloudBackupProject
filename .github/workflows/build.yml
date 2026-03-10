@@ -42,8 +42,6 @@ jobs:
         host: ${{ matrix.os == 'windows-2022' && 'windows' || 'linux' }}
         target: ${{ matrix.qt-target }}
         arch: ${{ matrix.os == 'windows-2022' && matrix.compiler || 'gcc_64' }}
-        modules: qtcharts
-        archives: qtbase qttools
 
     - name: Configure CMake (Windows)
       if: matrix.os == 'windows-2022'
