@@ -12,18 +12,6 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-22.04, windows-2022]
-        qt-version: [6.8.0]
-        include:
-          - os: ubuntu-22.04
-            qt-target: desktop
-            install-deps: |
-              sudo apt update
-              sudo apt install -y build-essential libgl1-mesa-dev libxcb-cursor-dev
-          - os: windows-2022
-            qt-target: desktop
-            compiler: msvc2022_64
-            install-deps: |
-              choco install ninja
 
     steps:
     - name: Checkout
@@ -31,57 +19,47 @@ jobs:
       with:
         submodules: recursive
 
-    - name: Install system dependencies
-      run: ${{ matrix.install-deps }}
-      shell: bash
+    - name: Install system dependencies (Linux)
+      if: matrix.os == 'ubuntu-22.04'
+      run: |
+        sudo apt update
+        sudo apt install -y build-essential libgl1-mesa-dev libxcb-cursor-dev ninja-build
+
+    - name: Install dependencies (Windows)
+      if: matrix.os == 'windows-2022'
+      run: choco install ninja
 
     - name: Install Qt
-      uses: jurplel/install-qt-action@v4
+      uses: jurplel/install-qt-action@v3
       with:
-        version: ${{ matrix.qt-version }}
-        host: ${{ matrix.os == 'windows-2022' && 'windows' || 'linux' }}
-        target: ${{ matrix.qt-target }}
-        arch: ${{ matrix.os == 'windows-2022' && matrix.compiler || 'gcc_64' }}
+        version: '6.8.0'
 
-    - name: Configure CMake (Windows)
+    - name: Configure MSVC (Windows)
       if: matrix.os == 'windows-2022'
-      run: >
-        cmake -B ${{ github.workspace }}/build
-        -G "Visual Studio 17 2022"
-        -DCMAKE_BUILD_TYPE=Release
-        -DCMAKE_INSTALL_PREFIX=${{ github.workspace }}/install
-      shell: pwsh
+      uses: ilammy/msvc-dev-cmd@v1
 
-    - name: Configure CMake (Linux)
-      if: matrix.os == 'ubuntu-22.04'
-      run: >
-        cmake -B ${{ github.workspace }}/build
-        -DCMAKE_BUILD_TYPE=Release
-        -DCMAKE_INSTALL_PREFIX=${{ github.workspace }}/install
-      shell: bash
+    - name: Configure CMake
+      run: cmake -S . -B build -G "Ninja Multi-Config" -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
-      run: cmake --build ${{ github.workspace }}/build --config Release -j 4
-      shell: bash
+      run: cmake --build build --config Release -j 4
 
     - name: Install
-      run: cmake --install ${{ github.workspace }}/build --config Release
+      run: cmake --install build --config Release
       shell: bash
 
     - name: Upload artifacts (Linux)
       if: matrix.os == 'ubuntu-22.04'
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ matrix.os }}-qt${{ matrix.qt-version }}
+        name: ${{ matrix.os }}-qt6.8.0
         path: |
-          ${{ github.workspace }}/install/bin/
           ${{ github.workspace }}/build/
 
     - name: Upload artifacts (Windows)
       if: matrix.os == 'windows-2022'
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ matrix.os }}-qt${{ matrix.qt-version }}
+        name: ${{ matrix.os }}-qt6.8.0
         path: |
-          ${{ github.workspace }}/install/
           ${{ github.workspace }}/build/Release/
