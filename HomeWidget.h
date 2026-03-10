@@ -16,6 +16,7 @@ class HomeWidget : public QWidget
 
 protected:
     void guiInit();
+    void eventInit();
 
 
 public:
@@ -27,10 +28,24 @@ public:
     void mouseMoveEvent(QMouseEvent*) override;
     void mouseReleaseEvent(QMouseEvent*) override;
 
+    void TestValue();
+
 private slots:
     void on_MiniButton_clicked();
 
     void on_CloseButton_clicked();
+
+
+    void on_CheckFile_clicked();
+
+    void on_comboBox_currentIndexChanged(int index);
+
+    void on_EnterUploadButton_clicked();
+
+    void on_CancleUploadButton_clicked();
+
+private:
+    void on_change_stackedWidget(int index);
 
 private:
     Ui::HomeWidget *ui;
